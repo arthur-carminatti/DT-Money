@@ -21,6 +21,12 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     background-color: ${props => props.theme["gray-600"]};
     border-radius: 6px;
     padding: 2rem;
+    transition: 0.4s;
+
+    &:hover {
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+    }
 
     header {
         display: flex;
