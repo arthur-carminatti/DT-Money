@@ -24,8 +24,8 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     transition: 0.4s;
 
     &:hover {
-        margin-top: -1rem;
-        margin-bottom: 1rem;
+        margin-top: -0.6rem;
+        margin-bottom: 0.6rem;
     }
 
     header {
