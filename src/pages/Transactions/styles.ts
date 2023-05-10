@@ -26,6 +26,18 @@ export const TransactionsTable = styled.table`
             border-top-right-radius: 6px;
             border-bottom-right-radius: 6px;
         }
+
+        button {
+            border: 0;
+            background: transparent;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            
+            svg {
+                color: ${props => props.theme["gray-400"]};
+            }
+        }
     }
 `
 interface PriceHighLightProps {

@@ -5,10 +5,19 @@ import { SearchForm } from "./components/SearchForm";
 import { PriceHighLight, TransactionsContainer, TransactionsTable } from "./styles";
 import { TransactionsContext } from "../../contexts/TransactionsContext";
 import { dateFormatter, priceFormatter } from "../../utils/formatter";
+import { Trash } from 'phosphor-react';
 
 export function Transactions() {
     const transactions = useContextSelector(TransactionsContext, (context) => {
-        return context.transactions
+        return (
+            context.transactions
+        )
+    })
+
+    const deleteTransaction = useContextSelector(TransactionsContext, (context) => {
+        return (
+            context.deleteTransaction
+        )
     })
 
     return (
@@ -22,6 +31,9 @@ export function Transactions() {
                 <TransactionsTable>
                     <tbody>
                         {transactions.map(transaction => {
+                            function transactionTest() {
+                                deleteTransaction(transaction.id)
+                            }
                             return (
                                 <tr key={transaction.id}>
                                     <td width="50%">{transaction.description}</td>
@@ -33,6 +45,11 @@ export function Transactions() {
                                     </td>
                                     <td>{transaction.category}</td>
                                     <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
+                                    <td>
+                                        <button onClick={transactionTest}>
+                                            <Trash size={18} />
+                                        </button>
+                                    </td>
                                 </tr>
                             )
                         })}
