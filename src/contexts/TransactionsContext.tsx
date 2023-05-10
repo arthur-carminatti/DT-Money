@@ -46,8 +46,6 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
             setTransactions(response.data)
         }, [])
 
-
-
     const createTransaction = useCallback(
         async (data: CreateTransactionInput) => {
             const { description, price, category, type } = data
@@ -65,7 +63,7 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
 
     useEffect(() => {
         fetchTransactions()
-    }, [])
+    }, [fetchTransactions])
 
     return (
         <TransactionsContext.Provider value={{
